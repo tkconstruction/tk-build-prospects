@@ -14,6 +14,8 @@ import {
   Award,
   ChevronLeft,
   ChevronRight,
+  Heart,
+  TrendingUp,
 } from "lucide-react";
 import heroImage from "@/assets/hero-construction.jpg";
 import project1 from "@/assets/project-1.jpg";
@@ -171,6 +173,126 @@ const Home = () => {
       </section>
 
       {/* Differentiators Carousel */}
+      <section className="py-20 bg-muted">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
+            Why Choose TK Construction?
+          </h2>
+
+          <div className="relative">
+            <Card className="shadow-xl">
+              <CardContent className="p-12">
+                <div className="text-center animate-fade-in" key={currentSlide}>
+                  <div className="mb-6 flex justify-center">
+                    <div className="p-6 bg-accent/10 rounded-full">
+                      {(() => {
+                        const Icon = differentiators[currentSlide].icon;
+                        return <Icon className="h-16 w-16 text-accent" />;
+                      })()}
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">
+                    {differentiators[currentSlide].title}
+                  </h3>
+                  <p className="text-lg text-muted-foreground">
+                    {differentiators[currentSlide].description}
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Carousel Controls */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 p-2 bg-card rounded-full shadow-lg hover:bg-accent hover:text-accent-foreground transition-colors"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 p-2 bg-card rounded-full shadow-lg hover:bg-accent hover:text-accent-foreground transition-colors"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+
+            {/* Indicators */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {differentiators.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentSlide ? "w-8 bg-accent" : "w-2 bg-border"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Legacy Teaser Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="animate-fade-in">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Protecting Generational Homes in Cowlitz County
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                Whether you're planning to age in place or preparing a family home for the next chapter, we help turn equity into legacy. Our compassionate approach honors the memories while maximizing value for the future.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <div className="p-1 bg-accent/10 rounded mr-3 mt-1">
+                    <Shield className="h-5 w-5 text-accent" />
+                  </div>
+                  <span className="text-muted-foreground">Age-in-place modifications for comfortable, safe living</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="p-1 bg-accent/10 rounded mr-3 mt-1">
+                    <TrendingUp className="h-5 w-5 text-accent" />
+                  </div>
+                  <span className="text-muted-foreground">Strategic updates that maximize inherited home value</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="p-1 bg-accent/10 rounded mr-3 mt-1">
+                    <Heart className="h-5 w-5 text-accent" />
+                  </div>
+                  <span className="text-muted-foreground">Compassionate guidance through every step</span>
+                </li>
+              </ul>
+              <Link to="/legacy">
+                <Button variant="default" size="lg">
+                  Learn About Our Legacy Program
+                </Button>
+              </Link>
+            </div>
+            <Card className="shadow-xl animate-scale-in">
+              <CardContent className="p-8">
+                <div className="text-center">
+                  <div className="flex justify-center mb-6">
+                    <div className="p-4 bg-accent/10 rounded-full">
+                      <Heart className="h-12 w-12 text-accent" />
+                    </div>
+                  </div>
+                  <blockquote className="text-lg text-muted-foreground italic mb-4">
+                    "Your home is more than a house. It's a lifetime of memories and the foundation of your family's future."
+                  </blockquote>
+                  <p className="text-sm font-semibold text-foreground">
+                    — TK Construction & Roofing LLC
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Preview */}
       <section className="py-20 bg-muted">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
