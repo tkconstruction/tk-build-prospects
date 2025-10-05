@@ -18,7 +18,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import heroImage from "@/assets/Screenshot 2025-10-04 141736.png";
-import project1 from "@";
+import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
 import project4 from "@/assets/project-4.jpg";

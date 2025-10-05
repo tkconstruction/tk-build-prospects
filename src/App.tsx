@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { ConstructionAdvisor } from "./components/ConstructionAdvisor";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Legacy from "./pages/Legacy";
@@ -36,6 +37,7 @@ const App = () => (
             </Routes>
           </main>
           <Footer />
+          <ConstructionAdvisor />
         </div>
       </BrowserRouter>
     </TooltipProvider>
